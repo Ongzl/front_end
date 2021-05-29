@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import { firebase } from "@firebase/app";
+import "@firebase/auth";
+import { config } from "./config/firebase";
+import App from './App/pages/App';
 import reportWebVitals from './reportWebVitals';
+import {FirebaseAuthProvider} from "@react-firebase/auth";
+import {CssBaseline} from "@material-ui/core";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <CssBaseline />
+          <FirebaseAuthProvider {...config} firebase={firebase}>
+              <App />
+          </FirebaseAuthProvider>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
