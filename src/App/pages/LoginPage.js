@@ -10,7 +10,8 @@ function LoginPage() {
 
     return (
         <>
-            <h1>Login</h1>
+            <h1>Chattela</h1>
+            <h2>Login</h2>
             <FirebaseAuthConsumer>
                 {({ firebase }) => (
                     <Button
